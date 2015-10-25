@@ -1,0 +1,114 @@
+/*select*/
+  select {
+      width: 10em;
+      height: 1.8em;
+      vertical-align: middle;
+      border: 2px solid #fff;
+      -moz-border-radius: 0.2em;
+      -webkit-border-radius: 0.2em;
+      border-radius: 0.2em;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      /* sample image from the webinfocentral.com */
+      font-family: Arial, Calibri, Tahoma, Verdana;
+      font-size: 1.1em;
+      cursor: pointer;
+  }
+  
+  select option {
+      font-size: 1em;
+      padding: 0.2em 0.4em 0.2em 0.4em;
+  }
+  
+  select option[selected] {
+      font-weight: bold
+  }
+  
+  select option:nth-child(even) {
+      background-color: #f5f5f5;
+  }
+  
+  select:hover {
+      color: #000;
+      border: 1px solid #cdcdcd;
+  }
+  
+  select:focus {
+      box-shadow: 0 0 2px 1px #404040;
+  }
+  /*SELECT W/DOWN-ARROW*/
+  
+  select#selectPointOfInterest {
+      width: 185pt;
+      height: 40pt;
+      line-height: 40pt;
+      padding-right: 20pt;
+      text-indent: 4pt;
+      text-align: left;
+      vertical-align: middle;
+      box-shadow: inset 0 0 3px #606060;
+      border: 1px solid #acacac;
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      border-radius: 6px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-family: Arial, Calibri, Tahoma, Verdana;
+      font-size: 18pt;
+      font-weight: 500;
+      color: #000099;
+      cursor: pointer;
+      outline: none;
+  }
+  
+  select#selectPointOfInterest option {
+      padding: 4px 10px 4px 10px;
+      font-size: 11pt;
+      font-weight: normal;
+  }
+  
+  select#selectPointOfInterest option[selected] {
+      font-weight: bold
+  }
+  
+  select#selectPointOfInterest option:nth-child(even) {
+      background-color: #f5f5f5;
+  }
+  
+  select#selectPointOfInterest:hover {
+      font-weight: 700;
+  }
+  
+  select#selectPointOfInterest:focus {
+      box-shadow: inset 0 0 5px #000099;
+      font-weight: 600;
+  }
+  /*LABEL FOR SELECT*/
+  
+  label#lblSelect {
+      position: relative;
+      display: inline-block;
+  }
+  /*DOWNWARD ARROW (25bc)*/
+  
+  label#lblSelect::after {
+      content: "\25bc";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 20pt;
+      line-height: 40pt;
+      vertical-align: middle;
+      text-align: center;
+      background: #000099;
+      color: #fefefe;
+      -moz-border-radius: 0 6px 6px 0;
+      -webkit-border-radius: 0 6px 6px 0;
+      border-radius: 0 6px 6px 0;
+      pointer-events: none;
+  }
+  /*select*/
+
