@@ -1,0 +1,41 @@
+<div ng-controller='orderlistCtrl'>
+  <div class="page-title">
+      <div class="title_left">
+          <h3>订单列表</h3>
+      </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading row" role="tab">
+             <div class="col-md-2"><h4 class="panel-title" align="center">姓名</h4></div> 
+             <div class="col-md-2"><h4 class="panel-title" align="center">电话</h4></div> 
+             <div class="col-md-3"><h4 class="panel-title" align="center">意向楼盘</h4></div> 
+             <div class="col-md-2"><h4 class="panel-title" align="center">备注</h4></div> 
+             <div class="col-md-3"><h4 class="panel-title" align="center">修改订单状态</h4></div> 
+          </div>
+        </div>
+
+      <div class="panel panel-default" ng-repeat="order in list">
+        <div class="panel-heading row" role="tab" >
+          <div class="col-md-2"><h4 class="panel-title" align="center">{{order.BuyerName}}</h4></div> 
+          <div class="col-md-2"><h4 class="panel-title" align="center">{{order.BuyerPhone}}</h4></div> 
+          <div class="col-md-3"><h4 class="panel-title" align="center">{{order.IntentionHouse}}</h4></div> 
+          <div class="col-md-2"><h4 class="panel-title" align="center">{{order.BuyerRemarks}}</h4></div> 
+          <div class="col-md-3" align="center">
+            <select  class="form-control" >
+              <option value="0" ng-selected="order.Status == '0'" id="sel0_{{order.BuyerID}}_{{$index}}" opt-sub>下单</option>
+              <option value="1" ng-selected="order.Status == '1'" id="sel1_{{order.BuyerID}}_{{$index}}" opt-sub>看房</option>
+              <option value="2" ng-selected="order.Status == '2'" id="sel2_{{order.BuyerID}}_{{$index}}" opt-sub>预定</option>
+              <option value="3" ng-selected="order.Status == '3'" id="sel3_{{order.BuyerID}}_{{$index}}" opt-sub>成交</option>
+            </select>
+          </div>  
+        </div>
+       </div>
+       <div style="text-align: right"><ul id="page"></ul></div>
+      </div>
+  </div>
+
+</div>
+

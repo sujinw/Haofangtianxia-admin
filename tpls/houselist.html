@@ -1,0 +1,30 @@
+<div ng-controller='houselistCtrl'>
+  <div class="page-title">
+      <div class="title_left">
+          <h3>楼盘列表</h3>
+      </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading row" role="tab">
+             <div class="col-md-4"><h4 class="panel-title" align="center">ID</h4></div> 
+             <div class="col-md-4"><h4 class="panel-title" align="center">楼盘名</h4></div> 
+             <div class="col-md-4"><h4 class="panel-title" align="center">首页推荐</h4></div> 
+          </div>
+        </div>
+
+      <div class="panel panel-default" ng-repeat="house in list">
+        <div class="panel-heading row" role="tab" >
+          <div class="col-md-4"><h4 class="panel-title" align="center">{{house.HouseId}}</h4></div> 
+          <div class="col-md-4"><h4 class="panel-title" align="center"><a class="hand" ng-click="chkinfo(house.HouseId)">{{house.HouseName}}</a></h4></div> 
+          <div class="col-md-4"><h4 class="panel-title" align="center"><input type="checkbox" id="{{house.HouseId}}" check="{{house.rec}}" sw-rec ng-disabled="{{house.rec}}"></h4></div> 
+        </div>
+       </div>
+       <div style="text-align: right"><ul id="page"></ul></div>
+      </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,72 @@
+<div ng-controller='userlistCtrl'>
+  <div class="page-title">
+      <div class="title_left">
+          <h3>用户列表</h3>
+      </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading row" role="tab">
+             <div class="col-md-2"><h4 class="panel-title" align="center">姓名</h4></div> 
+             <div class="col-md-2"><h4 class="panel-title" align="center">电话</h4></div> 
+             <div class="col-md-3"><h4 class="panel-title" align="center">身份证号</h4></div> 
+             <div class="col-md-1"><h4 class="panel-title" align="center">开户行</h4></div> 
+             <div class="col-md-3"><h4 class="panel-title" align="center">银行卡号</h4></div> 
+             <div class="col-md-1"><h4 class="panel-title" align="center">推荐数</h4></div> 
+          </div>
+        </div>
+
+      <div class="panel panel-default" ng-repeat="user in list">
+        <div class="panel-heading row" role="tab" >
+          <div class="col-md-2"><h4 class="panel-title" align="center">{{user.UserName}}</h4></div> 
+          <div class="col-md-2"><h4 class="panel-title" align="center">{{user.PhoneNumber}}</h4></div> 
+          <div class="col-md-3"><h4 class="panel-title" align="center">{{user.IDNumber}}</h4></div> 
+          <div class="col-md-1"><h4 class="panel-title" align="center">{{user.BankName}}</h4></div> 
+          <div class="col-md-3"><h4 class="panel-title" align="center">{{user.BankCardNumber}}</h4></div> 
+          <div class="col-md-1"><h4 class="panel-title" align="center"><a class="hand" ng-click="chkrec(user.PhoneNumber)">{{user.RecNumber}}</a></h4></div> 
+        </div>
+       </div>
+       <div style="text-align: right"><ul id="page"></ul></div>
+      </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">推荐用户</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead><tr>
+                <th>姓名</th>
+                <th>电话</th>
+                <th>意向价格</th>
+                <th>意向楼盘</th>
+                <th>备注</th>
+                <th>推荐途径</th>
+            </tr></thead>
+            <tbody><tr ng-repeat="rec in rec_list">
+                <th>{{rec.RecommendedName}}</th>
+                <th>{{rec.RecommendedPhone}}</th>
+                <th>{{rec.IntentionPrice}}</th>
+                <th>{{rec.HouseID}}</th>
+                <th>{{rec.Remarks}}</th>
+                <th>{{chgrectype[rec.RecType]}}</th>
+            </tr></tbody>
+          </table>
+          <div style="text-align: right"> <ul id="page2"></ul> </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>    
+  <!-- /Modal -->
+</div>
+

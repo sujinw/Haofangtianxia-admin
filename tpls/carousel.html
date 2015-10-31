@@ -1,0 +1,49 @@
+<div ng-controller='carouselCtrl'>
+  <div class="page-title">
+      <div class="title_left">
+          <h3>轮播图片管理</h3>
+      </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab">
+             <h4 class="panel-title">轮播图片1</h4>
+          </div>
+          <div class="panel-body">
+            <img ng-src="{{imgpre[1]||'/images/homepage/s1.jpg'}}">
+            <input type="file" up-image class="file" id="1"/>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab">
+             <h4 class="panel-title">轮播图片2</h4>
+          </div>
+          <div class="panel-body">
+            <img ng-src="{{imgpre[2]||'/images/homepage/s2.jpg'}}">
+            <input type="file" up-image class="file" id="2"/>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab">
+             <h4 class="panel-title">轮播图片3</h4>
+          </div>
+          <div class="panel-body">
+            <img ng-src="{{imgpre[3]||'/images/homepage/s3.jpg'}}">
+            <input type="file" up-image class="file" id="3"/>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab">
+             <h4 class="panel-title">轮播图片4</h4>
+          </div>
+          <div class="panel-body">
+            <img ng-src="{{imgpre[4]||'/images/homepage/s4.jpg'}}">
+            <input type="file" up-image class="file" id="4"/>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+

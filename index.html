@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="routerApp">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -13,24 +13,26 @@
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="framework/others/css/bootstrap-dialog.css"/>
+    <link rel="stylesheet" type="text/css" href="framework/bootstrap-switch.css"/>
+    <link rel="stylesheet" type="text/css" href="framework/bootstrap-select.min.css"/>
     <script src="framework/jquery-1.9.1.js"></script>
     <script src="framework/angular-1.3.0.14/angular.js"></script>
     <script src="framework/angular-1.3.0.14/angular-animate.min.js"></script>
     <script src="framework/angular-1.3.0.14/angular-cookies.min.js"></script>
-    <script src="framework/angular-1.3.0.14/ng-file-upload.min.js"></script>
     <script src="framework/angular-ui-router.js"></script>
     <script src="framework/ui-bootstrap-tpls-0.11.0.js"></script>
     <script src="framework/ng-grid-2.0.12/ng-grid.debug.js"></script>
     <script src="framework/bootstrap-3.0.0/js/bootstrap.min.js"></script>
     <script src="framework/bootstrap-paginator.js"></script>
+    <script src="framework/bootstrap-select.min.js"></script>
     <script src="framework/others/js/jquery.bootstrap.teninedialog.v3.min.js"></script>
     <script src="framework/others/js/bootstrap-dialog.js"></script>
     <script src="framework/others/js/jquery.flexslider-min.js"></script>    
     <script src="framework/others/js/jquery.fly.min.js"></script>    
     <script src="framework/others/js/jquery.cookie.js"></script>    
-    <script src="framework/others/js/angular-file-upload.js"></script>  
     <script src="framework/nicescroll/jquery.nicescroll.min.js"></script>
     <script src="framework/main.js"></script>
+    <script src="framework/bootstrap-switch.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controller.js"></script>
 
@@ -39,7 +41,7 @@
 
 <body class="nav-md">
 
-    <div class="container body" ng-controller="sp_headerCtrl">
+    <div class="container body">
 
 
         <div class="main_container">
@@ -48,7 +50,7 @@
                 <div class="left_col scroll-view">
 
                     <div class="navbar nav_title" style="border: 0;">
-                        <a  class="site_title"><i class="fa fa-paw"></i> <span>英特龙</span></a>
+                        <a  class="site_title"><i class="fa fa-paw"></i> <span>好房天下</span></a>
                     </div>
                     <div class="clearfix"></div>
 
@@ -62,41 +64,29 @@
                         <div class="menu_section">
                            
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-home"></i> 商品管理 <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-home"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a ui-sref="suppliercenter.pdtlist">商品列表</a>
-                                        </li>
-                                        <li><a ui-sref="suppliercenter.pdtadd">商品信息录入</a>
-                                        </li>
-                                        <li><a ui-sref="suppliercenter.pdtrank">商品销售排行</a>
+                                        <li><a ui-sref="userlist">用户列表</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-edit"></i> 经销商管理 <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-edit"></i> 房源管理 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a ui-sref="suppliercenter.agentlist">经销商查看</a>
+                                        <li><a ui-sref="houseadd">房源增加</a>
                                         </li>
-                                        <li><a ui-sref="suppliercenter.agentability">物流能力查看</a>
+                                        <li><a ui-sref="houselist">房源列表</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-desktop"></i> 采购单管理 <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-desktop"></i> 订单管理 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a ui-sref="suppliercenter.orderlist">采购单列表</a>
+                                        <li><a ui-sref="orderlist">订单列表</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-table"></i> 导购员管理 <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-table"></i> 首页管理 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a ui-sref="suppliercenter.stafflist">导购员查看</a>
-                                        </li>
-                                        <li><a ui-sref="suppliercenter.staffadd">增加导购员</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-bar-chart-o"></i> 品牌信息管理 <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li><a ui-sref="suppliercenter.supplierinfo">查看品牌信息</a>
+                                        <li><a ui-sref="carousel">轮播图片</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -110,17 +100,17 @@
             </div>
 
             <!-- top navigation -->
-            <div class="top_nav">
+            <div class="top_nav" ng-controller="headCtrl">
 
                 <div class="nav_menu" >
                     <nav class="" role="navigation">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="image/img.jpg" alt="">{{sp_name}}
+                                    <img src="image/img.jpg" alt="">管理员
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
-                                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right" ng-if="sp_name">
+                                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                                     <li><a ng-click="logout()" class="hand"><i class="fa fa-sign-out pull-right"></i> 返回</a>
                                     </li>
                                 </ul>
